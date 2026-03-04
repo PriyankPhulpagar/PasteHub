@@ -1,4 +1,4 @@
-// client/src/pages/AuthSuccess.jsx
+// src/pages/AuthSuccess.jsx
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,10 +10,14 @@ function AuthSuccess() {
     const token = params.get("token");
 
     if (token) {
-      localStorage.setItem("jwt", token); // store JWT
-      navigate("/"); // go to homepage
+      // 1️⃣ Store token
+      localStorage.setItem("jwt", token);
+
+      // 2️⃣ Redirect to homepage
+      navigate("/"); 
     } else {
-      navigate("/login"); // fallback
+      // fallback if token missing
+      navigate("/login");
     }
   }, [navigate]);
 

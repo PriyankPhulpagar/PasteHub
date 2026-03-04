@@ -10,6 +10,8 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+
+      {/* NEW: Auth success route to handle JWT */}
       <Route path="/auth-success" element={<AuthSuccess />} />
 
       <Route
@@ -20,7 +22,6 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
-
       <Route
         path="/paste/:id"
         element={
@@ -29,7 +30,6 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
-
       <Route
         path="/edit/:id"
         element={
