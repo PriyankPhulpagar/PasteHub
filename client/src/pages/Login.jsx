@@ -1,7 +1,6 @@
 function Login() {
   const handleLogin = () => {
-    // Go to backend Google OAuth route
-    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
+    window.location.href = `${process.env.REACT_APP_API_URL.replace("/api","")}/auth/google`;
   };
 
   return (
