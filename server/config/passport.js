@@ -8,7 +8,11 @@ passport.use(
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: "/auth/google/callback",
+            // FULL URL in production
+            callbackURL:
+                process.env.NODE_ENV === "production"
+                    ? "https://pastehub-owee.onrender.com/auth/google/callback"
+                    : "http://localhost:5000/auth/google/callback",
         },
         async (accessToken, refreshToken, profile, done) => {
             try {
