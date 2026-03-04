@@ -1,6 +1,7 @@
 function Login() {
   const handleLogin = () => {
-    window.location.href = `${process.env.REACT_APP_API_URL.replace("/api","")}/auth/google`;
+    // Correct URL — match backend
+    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
   };
 
   return (
