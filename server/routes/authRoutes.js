@@ -15,13 +15,12 @@ router.get(
 // Google Callback
 router.get(
   "/google/callback",
-  passport.authenticate("google", { session: false }),
+  passport.authenticate("google", { session: false, failureRedirect: "/" }),
   (req, res) => {
-    // Redirect to frontend production URL
-    const token = req.user.token;
-
-    // Production: use CLIENT_URL
-    res.redirect(`${process.env.CLIENT_URL}/auth-success?token=${token}`);
+    // Redirect to frontend with token
+    res.redirect(
+      `http://localhost:3000/auth-success?token=${req.user.token}`
+    );
   }
 );
 
