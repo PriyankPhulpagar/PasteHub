@@ -1,23 +1,23 @@
+// client/src/pages/AuthSuccess.jsx
 import { useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AuthSuccess() {
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
+    const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
 
     if (token) {
-      localStorage.setItem("token", token);
-      window.location.href = "/";   // 👈 IMPORTANT (force reload)
+      localStorage.setItem("jwt", token); // store JWT
+      navigate("/"); // go to homepage
     } else {
-      navigate("/login");
+      navigate("/login"); // fallback
     }
-  }, [location, navigate]);
+  }, [navigate]);
 
-  return <div>Logging in...</div>;
+  return <div>Logging you in...</div>;
 }
 
 export default AuthSuccess;
