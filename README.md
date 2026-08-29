@@ -30,5 +30,5 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/PasteHub.git
+git clone https://github.com/PriyankPhulpagar/PasteHub.git
 cd PasteHub
